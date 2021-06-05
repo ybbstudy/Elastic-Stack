@@ -206,44 +206,6 @@ POST test/_search
   }
 }
 
-
-POST test/_search
-{
-  "size": 0,
-  "suggest": {
-    "text": "windsheild got mitsy",
-    "phrase-suggestion-demo-01": {
-      "phrase": {
-        "field": "tagline",
-        //此选项的默认值为 0.95。此选项告诉 Elasticsearch 索引中 5% 的术语拼写错误。这意味着随着这个参数的值越来越低，Elasticsearch 会将越来越多存在于索引中的术语视为拼写错误，即使它们是正确的
-        "real_word_error_likelihood": 0.95,
-        //为了形成更正，最多被认为是拼写错误的术语的最大百分比。默认值为 1
-        "max_errors": 0.5,
-        //默认值为 1.0，最大值也是。该值充当与建议分数相关的阈值。只有得分超过此值的建议才会显示。例如，置信度为 1.0 只会返回得分高于输入短语的建议
-        "confidence": 0,
-        "highlight": {
-          "pre_tag": "<em>",
-          "post_tag": "</em>"
-        },
-        //告诉 Elasticsearch 根据指定的查询检查每个建议，以修剪索引中不存在匹配文档的建议。在这种情况下，它是一个匹配查询。由于此查询是模板查询，因此搜索查询是当前建议，位于查询中的参数下。可以在查询下的“params”对象中添加更多字段。同样，当参数“prune”设置为true时，我们将在响应中增加一个字段“collat​​e_match”，指示建议结果中是否存在所有更正关键字的匹配
-        "collate": {
-          "query": {
-            "inline": {
-              "match": {
-                "": ""
-              }
-            }
-          },
-          "params": {
-            "field_name": "tagline"
-          },
-          "prune": true
-        }
-      }
-    }
-  }
-}
-
 #complate suggester
 DELETE suggest_carinfo
 PUT suggest_carinfo
