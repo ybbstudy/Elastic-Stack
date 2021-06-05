@@ -120,9 +120,31 @@
 
 ### 本章小结及知识点补充
 
+## 		索引的批量操作
 
+### 基于_mget的批量查询
 
-## 		路由
+### 文档的四种操作类型
+
+### 基于_bulk的增删改
+
+## 		模糊查询和搜索推荐
+
+### 关于课程ES的版本升级
+
+### 本章内容介绍
+
+### 前缀搜索：prefix
+
+### 通配符搜索：wildcard
+
+### 正则表达式：regexp
+
+### 模糊查询：fuzzy
+
+### 短语前缀搜索：match_phrase_prefix
+
+### 前缀后缀搜索的优化方案：ngram和edge ngram
 
 ## 		数据建模
 
@@ -131,6 +153,8 @@
 ### 			Java REST Client
 
 ### 			Python API
+
+### Spring Data ELasticsearch
 
 # 高手进阶篇
 
@@ -145,6 +169,20 @@
 ### 		search after
 
 ## 	深度优先广度优先算法
+
+## 数据同步的解决方案
+
+### 基于canal + binlog的数据同步方案
+
+### 基于logstash input plugin的全量同步方案
+
+### 基于dump的同步方案
+
+## 索引的生命周期
+
+### 分片分配感知
+
+### 冷热集群的架构设计
 
 ## 	ES读写调优
 
